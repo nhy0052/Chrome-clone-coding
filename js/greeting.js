@@ -10,14 +10,13 @@ const USERNAME_KEY = "username";
 //로그인 버튼 글릭 이벤트
 function onLoginSubmit(event) {
   event.preventDefault();              //새로고침 막기
-  const userName = loginInput.value;   //입력받은 값 저장
-  localStorage.setItem(USERNAME_KEY , userName);    //local Storage에 저장
   loginForm.classList.add(HIDDEN_CLASSNAME);   //입력폼 숨기기
-  //숨겨져 있던 h1으로 환영인사 하기
-  paintGreeting(userName);
+  const username = loginInput.value;   //입력받은 값 저장
+  localStorage.setItem(USERNAME_KEY , username);    //local Storage에 입력값 저장
+  paintGreeting(username);
   
 }
-
+//환영인사
 function paintGreeting(name) {
   greeting.innerHTML = `Hello ${name}`;   
   greeting.classList.remove(HIDDEN_CLASSNAME);
